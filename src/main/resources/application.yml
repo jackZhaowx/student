@@ -1,0 +1,36 @@
+server:
+  port: 80
+  session-timeout: 3600
+spring:
+  main:
+    show_banner: false
+  http:
+    encoding:
+      charset: UTF-8
+      enabled: true
+      force: true
+  datasource:
+    name: datasource
+    initialize: false
+    url: jdbc:mysql://39.106.111.143:3306/student_apartment?zeroDateTimeBehavior=convertToNull&useUnicode=true&characterEncoding=UTF8
+    username: root
+    password: 123456
+    max-active: 10
+    max-idle: 2
+    min-idle: 2
+    initial-size: 2
+    validation-query: select 1
+    test-on-borrow: true
+    test-on-return: false
+    test-while-idle: false
+    time-between-eviction-runs-millis: 3000
+    min-evictable-idle-time-millis: 3000
+    max-wait: 3000
+    jmx-enabled: true
+  data:
+    jpa:
+      repositories:
+        enabled: true
+  jpa:
+    database-platform: org.hibernate.dialect.MySQLDialect
+    show-sql: false
