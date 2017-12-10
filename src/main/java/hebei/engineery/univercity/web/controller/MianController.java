@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
@@ -32,9 +33,12 @@ public class MianController {
      *
      * @return
      */
-    @RequestMapping("/index")
-    public ModelAndView index() {
+    @RequestMapping("")
+    public ModelAndView index(HttpServletRequest request) {
         ModelAndView mv = new ModelAndView("/index");
+        Long userId = UserCookieUtil.getUserFromCookie(request);
+        User user = userService.findOne(userId);
+        mv.addObject("user", user);
         return mv;
     }
 
@@ -49,16 +53,39 @@ public class MianController {
         return mv;
     }
 
+    /**
+     * 登陆操作
+     *
+     * @param userFormBean
+     * @param request
+     * @param response
+     * @return
+     * @throws Exception
+     */
     @RequestMapping(value = "/login/dolocation", method = RequestMethod.POST)
     @ResponseBody
     public String loginDoAction(@Valid @RequestBody UserFormBean userFormBean, HttpServletRequest request, HttpServletResponse response) throws Exception {
         User user = userService.findOneByUserNameAndPassword(userFormBean);
         if (user != null) {
-            UserCookieUtil.saveUserToCookie(request,response,user.getId());
+            UserCookieUtil.saveUserToCookie(request, response, user.getId());
             return "OK";
         } else {
             return "NO";
         }
+    }
+
+    /**
+     * 注销
+     *
+     * @param request
+     * @param response
+     * @return
+     */
+    @RequestMapping("/logout")
+    @ResponseBody
+    public String logout(HttpServletRequest request, HttpServletResponse response) {
+        UserCookieUtil.deleteUserFromCookie(request, response);
+        return "OK";
     }
 
     /**
@@ -82,7 +109,7 @@ public class MianController {
      */
     @RequestMapping(value = "/register/doaction", method = RequestMethod.POST)
     @ResponseBody
-    public String registerDoAction(@Valid @RequestBody UserFormBean userFormBean) throws Exception{
+    public String registerDoAction(@Valid @RequestBody UserFormBean userFormBean) throws Exception {
         String result = userService.save(userFormBean);
         return result;
     }

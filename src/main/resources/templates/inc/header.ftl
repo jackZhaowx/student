@@ -7,19 +7,45 @@
         <div id="sideNav" href=""><i class="material-icons dp48">toc</i></div>
     </div>
     <ul class="nav navbar-top-links navbar-right">
-        <li><a class="dropdown-button waves-effect waves-dark" href="#!" data-activates="dropdown4"><i class="fa fa-envelope fa-fw"></i> <i class="material-icons right">arrow_drop_down</i></a></li>
-        <li><a class="dropdown-button waves-effect waves-dark" href="#!" data-activates="dropdown3"><i class="fa fa-tasks fa-fw"></i> <i class="material-icons right">arrow_drop_down</i></a></li>
-        <li><a class="dropdown-button waves-effect waves-dark" href="#!" data-activates="dropdown2"><i class="fa fa-bell fa-fw"></i> <i class="material-icons right">arrow_drop_down</i></a></li>
-        <li><a class="dropdown-button waves-effect waves-dark" href="#!" data-activates="dropdown1"><i class="fa fa-user fa-fw"></i> <b>John Doe</b> <i class="material-icons right">arrow_drop_down</i></a></li>
+        <li>
+            <a class="dropdown-button waves-effect waves-dark" href="#!" data-activates="dropdown4">
+                <i class="fa fa-envelope fa-fw"></i>
+                <i class="material-icons right">arrow_drop_down</i>
+            </a>
+        </li>
+        <li>
+            <a class="dropdown-button waves-effect waves-dark" href="#!" data-activates="dropdown3">
+                <i class="fa fa-tasks fa-fw"></i>
+                <i class="material-icons right">arrow_drop_down</i>
+            </a>
+        </li>
+        <li>
+            <a class="dropdown-button waves-effect waves-dark" href="#!" data-activates="dropdown2">
+                <i class="fa fa-bell fa-fw"></i>
+                <i class="material-icons right">arrow_drop_down</i>
+            </a>
+        </li>
+        <li>
+            <a class="dropdown-button waves-effect waves-dark" href="#!" data-activates="dropdown1">
+                <i class="fa fa-user fa-fw"></i> <b>${user.nickName}</b>
+                <i class="material-icons right">arrow_drop_down</i>
+            </a>
+        </li>
     </ul>
 </nav>
 <!-- Dropdown Structure -->
 <ul id="dropdown1" class="dropdown-content">
-    <li><a href="#"><i class="fa fa-user fa-fw"></i> My Profile</a>
+    <li>
+        <a href="#">
+            <i class="fa fa-gear fa-fw"></i>
+            资料设置
+        </a>
     </li>
-    <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
-    </li>
-    <li><a href="#"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+    <li>
+        <a href="#" onclick="logout()">
+            <i class="fa fa-sign-out fa-fw"></i>
+            注  销
+        </a>
     </li>
 </ul>
 <ul id="dropdown2" class="dropdown-content w250">
@@ -42,7 +68,8 @@
                     <span class="pull-right text-muted">60% Complete</span>
                 </p>
                 <div class="progress progress-striped active">
-                    <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%">
+                    <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="60"
+                         aria-valuemin="0" aria-valuemax="100" style="width: 60%">
                         <span class="sr-only">60% Complete (success)</span>
                     </div>
                 </div>

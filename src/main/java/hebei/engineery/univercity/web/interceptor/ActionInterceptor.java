@@ -15,10 +15,15 @@ public class ActionInterceptor extends HandlerInterceptorAdapter {
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object o) throws Exception {
         Long userId = UserCookieUtil.getUserFromCookie(request);
+        String url = request.getRequestURI();
         if(userId!=null){
-            return true;
+            if ("/login".equals(url)) {
+                response.sendRedirect("");
+                return false;
+            }else {
+                return true;
+            }
         }else {
-            String url = request.getRequestURI();
             if ("/login".equals(url)) {
                 return true;
             } else {

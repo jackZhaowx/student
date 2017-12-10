@@ -31,3 +31,4 @@ function alertClose() {
     $("#alert_bg").hide();
     $("#alert_content").hide();
 }
+

@@ -30,9 +30,9 @@ $(function () {
             contentType: "application/json",
             success:function (data) {
                 if(data=="OK"){
-                    window.location.href="/index";
+                    window.location.href="/";
                     $(".zbox-popup-text").html("登陆成功，即将跳至首页...");
-                    $(".alert_close").remove();
+                    $("#alert_close").remove();
                     alertShow();
                 }else if(data=="NO"){
                     $(".zbox-popup-text").html("用户名或密码错误！");

@@ -53,4 +53,16 @@ public class UserCookieUtil {
         }
         return null;
     }
+
+    /**
+     * 删除登陆
+     * @param request
+     * @param response
+     */
+    public static void deleteUserFromCookie(HttpServletRequest request,HttpServletResponse response){
+        Cookie cookie = new Cookie("userToken", null);
+        cookie.setPath("/");
+        cookie.setMaxAge(0);
+        response.addCookie(cookie);
+    }
 }
