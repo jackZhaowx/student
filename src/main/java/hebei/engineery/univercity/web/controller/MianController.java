@@ -1,7 +1,11 @@
 package hebei.engineery.univercity.web.controller;
 
+import hebei.engineery.univercity.domain.LoginRecord;
 import hebei.engineery.univercity.domain.User;
+import hebei.engineery.univercity.service.LoginRecordService;
 import hebei.engineery.univercity.service.UserService;
+import hebei.engineery.univercity.utils.DateUtil;
+import hebei.engineery.univercity.utils.IpUtil;
 import hebei.engineery.univercity.utils.UserCookieUtil;
 import hebei.engineery.univercity.web.request.UserFormBean;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +22,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
 import java.io.UnsupportedEncodingException;
 import java.security.NoSuchAlgorithmException;
+import java.util.Date;
 
 /**
  * Created by Administrator on 2017/12/9.
@@ -27,6 +32,8 @@ import java.security.NoSuchAlgorithmException;
 public class MianController {
     @Autowired
     UserService userService;
+    @Autowired
+    LoginRecordService loginRecordService;
 
     /**
      * 首页
@@ -38,7 +45,11 @@ public class MianController {
         ModelAndView mv = new ModelAndView("/index");
         Long userId = UserCookieUtil.getUserFromCookie(request);
         User user = userService.findOne(userId);
+        LoginRecord record = loginRecordService.findOneByUserId(userId);
+        String time = DateUtil.getDatePoor(record.getLoginTime());
         mv.addObject("user", user);
+        mv.addObject("ip", record.getLoginIP());
+        mv.addObject("time", time);
         return mv;
     }
 
@@ -67,7 +78,19 @@ public class MianController {
     public String loginDoAction(@Valid @RequestBody UserFormBean userFormBean, HttpServletRequest request, HttpServletResponse response) throws Exception {
         User user = userService.findOneByUserNameAndPassword(userFormBean);
         if (user != null) {
+            String ip = IpUtil.getRealIP(request);
             UserCookieUtil.saveUserToCookie(request, response, user.getId());
+            LoginRecord loginRecord = loginRecordService.findOneByUserId(user.getId());
+            if (null != loginRecord) {
+                loginRecord.setLoginIP(ip);
+                loginRecord.setLoginTime(new Date());
+            } else {
+                loginRecord = new LoginRecord();
+                loginRecord.setUserId(user.getId());
+                loginRecord.setLoginIP(ip);
+                loginRecord.setLoginTime(new Date());
+            }
+            loginRecordService.save(loginRecord);
             return "OK";
         } else {
             return "NO";

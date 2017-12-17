@@ -18,7 +18,7 @@ public class ActionInterceptor extends HandlerInterceptorAdapter {
         String url = request.getRequestURI();
         if(userId!=null){
             if ("/login".equals(url)) {
-                response.sendRedirect("");
+                response.sendRedirect("/");
                 return false;
             }else {
                 return true;

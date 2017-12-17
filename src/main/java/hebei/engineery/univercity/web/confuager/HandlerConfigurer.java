@@ -12,6 +12,6 @@ import org.springframework.boot.autoconfigure.web.WebMvcAutoConfiguration.WebMvc
 public class HandlerConfigurer extends WebMvcAutoConfigurationAdapter {
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
-        registry.addInterceptor(new ActionInterceptor()).addPathPatterns("/**").excludePathPatterns("/login/**").excludePathPatterns("/register/**");
+        registry.addInterceptor(new ActionInterceptor()).addPathPatterns("/**").excludePathPatterns("/login/dolocation").excludePathPatterns("/register/**");
     }
 }
