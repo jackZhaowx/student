@@ -5,14 +5,14 @@ import sun.java2d.loops.GeneralRenderer;
 import javax.persistence.*;
 
 @Entity
-@Table(name="part_info")
-public class PartInfo {
+@Table(name="community")
+public class Community {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "part_name")
-    private String paretName;
+    @Column(name = "com_name")
+    private String comName;
 
     @Column(name="long_at")
     private String longAt;
@@ -31,12 +31,12 @@ public class PartInfo {
         this.id = id;
     }
 
-    public String getParetName() {
-        return paretName;
+    public String getComName() {
+        return comName;
     }
 
-    public void setParetName(String paretName) {
-        this.paretName = paretName;
+    public void setComName(String comName) {
+        this.comName = comName;
     }
 
     public String getLongAt() {

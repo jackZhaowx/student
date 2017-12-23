@@ -2,17 +2,17 @@
 <nav class="navbar-default navbar-side" role="navigation">
     <div class="sidebar-collapse">
         <ul class="nav" id="main-menu">
-            <li class="apartment">
-                <a class="waves-effect waves-dark part" href=""><i class="fa fa-dashboard"></i>公寓管理<span class="fa arrow"></span></a>
+            <li class="community-manager">
+                <a class="waves-effect waves-dark community" href=""><i class="fa fa-dashboard"></i>公寓管理<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
                     <li class="shequ">
-                        <a class="part" href="#">社区管理<span class="fa arrow"></span></a>
+                        <a class="community" href="#">社区管理<span class="fa arrow"></span></a>
                         <ul class="nav nav-third-level">
                             <li>
-                                <a class="part_list" href="/part">社区总览</a>
+                                <a class="community_list" href="/community">社区总览</a>
                             </li>
                             <li>
-                                <a class="part_live" href="/part/live">社区入住登记</a>
+                                <a class="community_live" href="/community/live">社区入住登记</a>
                             </li>
                         </ul>
                     </li>

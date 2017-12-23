@@ -28,7 +28,6 @@
             margin-top: -25px;
         }
     </style>
-    <script src="/scripts/logout.js" type="text/javascript"></script>
 </head>
 <body>
 <div id="wrapper">

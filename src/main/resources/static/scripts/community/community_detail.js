@@ -1,10 +1,8 @@
 $(function () {
-    $(".part,.part_list").addClass("active-menu");
-    $(".apartment").addClass("active");
+    $(".community,.community_list").addClass("active-menu");
+    $(".community-manager").addClass("active");
     $(".shequ").addClass("active");
-    $(".apartment ul").addClass("collapse in");
-    var hei=$(window).height()-30;
-    $("#page-wrapper").css("minHeight",hei+"px");
+    $(".community-manager ul").addClass("collapse in");
 });
 
 function getMore(num, url) {
@@ -23,17 +21,17 @@ function getMore(num, url) {
 
             }
         });
-      clearInterval(Int);
+        clearInterval(Int);
     },2000);
 }
 
 function getHtml(data) {
     var c = "";
     for (var i = 0; i < data.length; i++) {
-        var part = data[i];
+        var community = data[i];
         c += '<div style="cursor:pointer;background: #fff;width: 18%;border-top-left-radius:20px;border-top-right-radius:20px;float: left;margin-left: 1%;margin-right: 1%;margin-bottom: 10px;"><span style="background: #0D47A1;width:100%;border-top-left-radius:20px;border-top-right-radius:20px;height: 30px;display: block;"></span>';
         c += '<div style="width: 100%;height: 150px;background: url(/images/house' + i + '.png);background-size:100% 150px;"></div>';
-        c += ' <div style="height: 40px;"><p style="text-align: center;color: orange;padding: 10px 0">' + part.paretName + '</p></div></div>';
+        c += ' <div style="height: 40px;"><p style="text-align: center;color: orange;padding: 10px 0">' + community.comName + '</p></div></div>';
     }
     return c;
 }

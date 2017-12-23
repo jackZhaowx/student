@@ -10,4 +10,11 @@
 <script src="/scripts/jquery.metisMenu.js"></script>
 <script src="/scripts/custom-scripts.js"></script>
 <script src="/scripts/logout.js" type="text/javascript"></script>
+<script src="/scripts/logout.js" type="text/javascript"></script>
+<script>
+    $(function () {
+        var hei=$(window).height()-30;
+        $("#page-wrapper").css("minHeight",hei+"px");
+    })
+</script>
 </#macro>

@@ -9,7 +9,7 @@
 <#include "../inc/load_page.ftl"/>
 <@meta/>
 <@style/>
-    <script src="/scripts/part/part_list.js" type="text/javascript"></script>
+    <script src="/scripts/community/community_list.js" type="text/javascript"></script>
     <script src="/scripts/bootstrap-paginator.js" type="text/javascript"></script>
     <style>
         .pagination li {
@@ -27,7 +27,7 @@
             color: white;
         }
     </style>
-    <link href="/styles/load_page.css"rel="stylesheet"/>
+    <link href="/styles/load_page.css" rel="stylesheet"/>
 </head>
 <body>
 <div id="wrapper">
@@ -46,11 +46,11 @@
         <div style="background: #ececec;float: left;width: 100%;padding-bottom: 15px;" class="item_list">
         <#if result.code=="SUCCESS"&&(result.data?size>0)>
             <#list result.data as data>
-                <div style="cursor:pointer;background: #fff;width: 18%;border-top-left-radius:20px;border-top-right-radius:20px;float: left;margin-left: 1%;margin-right: 1%;margin-bottom: 10px;">
+                <div onclick="javascript:window.location.href='/community/community_detail/${data.id}'" style="cursor:pointer;background: #fff;width: 18%;border-top-left-radius:20px;border-top-right-radius:20px;float: left;margin-left: 1%;margin-right: 1%;margin-bottom: 10px;">
                     <span style="background: #0D47A1;width:100%;border-top-left-radius:20px;border-top-right-radius:20px;height: 30px;display: block;"></span>
                     <div style="width: 100%;height: 150px;background: url(/images/house${data_index}.png);background-size:100% 150px;"></div>
                     <div style="height: 40px;">
-                        <p style="text-align: center;color: orange;padding: 10px 0">${data.paretName}</p>
+                        <p style="text-align: center;color: orange;padding: 10px 0">${data.comName}</p>
                     </div>
                 </div>
             </#list>
@@ -87,7 +87,7 @@
                 }
             },
             onPageClicked: function (event, originalEvent, type, page) {
-                getMore(page, "/part/part_list_more");
+                getMore(page, "/community/community_list_more");
             }
         });
     }

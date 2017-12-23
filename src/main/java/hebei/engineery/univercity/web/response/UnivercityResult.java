@@ -4,7 +4,7 @@ import hebei.engineery.univercity.enums.PartResultCode;
 
 import java.util.List;
 
-public class PartResult<T> {
+public class UnivercityResult<T> {
     private PartResultCode code;
     private List<T> data;
     private Exception exception;
@@ -33,7 +33,7 @@ public class PartResult<T> {
         this.exception = exception;
     }
 
-    public  PartResult<T> createData(PartResultCode code, List<T> data, Exception exception){
+    public UnivercityResult<T> createData(PartResultCode code, List<T> data, Exception exception){
         this.code=code;
         this.data=data;
         this.exception=exception;
