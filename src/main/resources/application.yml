@@ -12,8 +12,8 @@ spring:
   datasource:
     name: datasource
     initialize: false
-    url: jdbc:mysql://39.106.111.143:3306/student_apartment?zeroDateTimeBehavior=convertToNull&useUnicode=true&characterEncoding=UTF8
-    ##url: jdbc:mysql://localhost:3306/student_apartment?zeroDateTimeBehavior=convertToNull&useUnicode=true&characterEncoding=UTF8
+    ##url: jdbc:mysql://39.106.111.143:3306/student_apartment?zeroDateTimeBehavior=convertToNull&useUnicode=true&characterEncoding=UTF8
+    url: jdbc:mysql://localhost:3306/student_apartment?zeroDateTimeBehavior=convertToNull&useUnicode=true&characterEncoding=UTF8
     username: root
     password: 123456
     max-active: 10
@@ -35,3 +35,8 @@ spring:
   jpa:
     database-platform: org.hibernate.dialect.MySQLDialect
     show-sql: false
+
+mydata:
+  partPageSize: 10
+  mentPageSize: 8
+

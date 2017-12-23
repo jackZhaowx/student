@@ -3,16 +3,16 @@
     <div class="sidebar-collapse">
         <ul class="nav" id="main-menu">
             <li class="apartment">
-                <a class="active-menu waves-effect waves-dark" href=""><i class="fa fa-dashboard"></i>公寓管理<span class="fa arrow"></span></a>
+                <a class="waves-effect waves-dark part" href=""><i class="fa fa-dashboard"></i>公寓管理<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
                     <li class="shequ">
-                        <a href="#">社区管理<span class="fa arrow"></span></a>
+                        <a class="part" href="#">社区管理<span class="fa arrow"></span></a>
                         <ul class="nav nav-third-level">
                             <li>
-                                <a href="#">社区总览</a>
+                                <a class="part_list" href="/part">社区总览</a>
                             </li>
                             <li>
-                                <a href="#">社区入住登记</a>
+                                <a class="part_live" href="/part/live">社区入住登记</a>
                             </li>
                         </ul>
                     </li>

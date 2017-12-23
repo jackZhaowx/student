@@ -9,7 +9,6 @@ body {
 
 #page-wrapper {
     padding: 15px 15px;
-    min-height: 600px;
     background: #ececec;
 }
 
@@ -18,7 +17,6 @@ body {
     margin: 10px 20px 10px 0px;
     background-color: transparent;
     padding: 15px 30px;
-    min-height: 1200px;
 }
 
 .header .container-fluid {
@@ -721,7 +719,6 @@ ul.dropdown-menu.dropdown-messages li a div {
     #page-wrapper {
         margin: 0 0 0 260px;
         padding: 0;
-        min-height: 1200px;
     }
 
     .navbar-side {

@@ -9,4 +9,5 @@
 <script src="/scripts/materialize.min.js"></script>
 <script src="/scripts/jquery.metisMenu.js"></script>
 <script src="/scripts/custom-scripts.js"></script>
+<script src="/scripts/logout.js" type="text/javascript"></script>
 </#macro>

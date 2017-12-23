@@ -23,6 +23,8 @@ import javax.validation.Valid;
 import java.io.UnsupportedEncodingException;
 import java.security.NoSuchAlgorithmException;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Created by Administrator on 2017/12/9.
@@ -47,9 +49,11 @@ public class MianController {
         User user = userService.findOne(userId);
         LoginRecord record = loginRecordService.findOneByUserId(userId);
         String time = DateUtil.getDatePoor(record.getLoginTime());
-        mv.addObject("user", user);
-        mv.addObject("ip", record.getLoginIP());
-        mv.addObject("time", time);
+        Map<String,Object> map=new HashMap<>();
+        map.put("user",user);
+        map.put("ip",record.getLoginIP());
+        map.put("time",time);
+        mv.addAllObjects(map);
         return mv;
     }
 
