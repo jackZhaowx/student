@@ -37,6 +37,6 @@ spring:
     show-sql: false
 
 mydata:
-  partPageSize: 10
+  partPageSize: 5
   mentPageSize: 8
 
