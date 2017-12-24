@@ -1,7 +1,7 @@
 <#macro header>
 <nav class="navbar navbar-default top-navbar" role="navigation">
     <div class="navbar-header">
-        <a class="navbar-brand waves-effect waves-dark" href="index.html">
+        <a class="navbar-brand waves-effect waves-dark" href="/">
             <i class="large material-icons">insert_chart</i>
             <strong>公寓管理</strong></a>
         <div id="sideNav" href=""><i class="material-icons dp48">toc</i></div>

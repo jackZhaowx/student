@@ -8,4 +8,10 @@ public interface CommunityService {
     List<Community> findAllByPage(int i, Integer partPageSize);
 
     Integer findAllCount();
+
+    Community findOne(Long id);
+
+    Community save(Community community);
+
+    List<Community> findAll();
 }

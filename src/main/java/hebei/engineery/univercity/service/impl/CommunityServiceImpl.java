@@ -26,4 +26,19 @@ public class CommunityServiceImpl implements CommunityService {
     public Integer findAllCount() {
         return communityRepository.findAllCount();
     }
+
+    @Override
+    public Community findOne(Long id) {
+        return communityRepository.findOne(id);
+    }
+
+    @Override
+    public Community save(Community community) {
+        return communityRepository.save(community);
+    }
+
+    @Override
+    public List<Community> findAll() {
+        return communityRepository.findAll();
+    }
 }

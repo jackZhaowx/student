@@ -3,6 +3,9 @@ package hebei.engineery.univercity.domain;
 import javax.persistence.*;
 import java.util.Date;
 
+/**
+ * 登陆记录表对应的实体
+ */
 @Entity
 @Table(name = "login_record")
 public class LoginRecord {

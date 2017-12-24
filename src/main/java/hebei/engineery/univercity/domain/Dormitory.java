@@ -2,24 +2,33 @@ package hebei.engineery.univercity.domain;
 
 import javax.persistence.*;
 
+/**
+ * 宿舍表对应的实体
+ */
 @Entity
-@Table(name="partment")
-public class Partment {
+@Table(name = "dormitory")
+public class Dormitory {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @Column(name="name")
+    @Column(name = "name")
     private String name;
 
-    @Column(name="parent_id")
+    @Column(name = "parent_id")
     private long parentId;
 
-    @Column(name="number")
+    @Column(name = "number")
     private Integer number;
 
-    @Column(name="level")
+    @Column(name = "level")
     private Integer level;
+
+    @Column(name = "parent_name")
+    private String parentName;
+
+    @Column(name = "wheel")
+    private String wheel;
 
     public long getId() {
         return id;
@@ -59,5 +68,21 @@ public class Partment {
 
     public void setLevel(Integer level) {
         this.level = level;
+    }
+
+    public String getParentName() {
+        return parentName;
+    }
+
+    public void setParentName(String parentName) {
+        this.parentName = parentName;
+    }
+
+    public String getWheel() {
+        return wheel;
+    }
+
+    public void setWheel(String wheel) {
+        this.wheel = wheel;
     }
 }

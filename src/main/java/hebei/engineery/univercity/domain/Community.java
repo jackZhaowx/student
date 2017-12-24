@@ -1,9 +1,10 @@
 package hebei.engineery.univercity.domain;
 
-import sun.java2d.loops.GeneralRenderer;
-
 import javax.persistence.*;
 
+/**
+ * 社区表对应的实体类
+ */
 @Entity
 @Table(name="community")
 public class Community {

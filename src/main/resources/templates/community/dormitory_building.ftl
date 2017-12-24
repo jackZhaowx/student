@@ -10,7 +10,7 @@
 <#include "../inc/load_page.ftl"/>
 <@meta/>
 <@style/>
-    <script src="/scripts/community/community_list.js" type="text/javascript"></script>
+    <script src="/scripts/community/dormitory_building.js" type="text/javascript"></script>
     <script src="/scripts/bootstrap-paginator.js" type="text/javascript"></script>
     <style>
         .pagination li {
@@ -47,29 +47,47 @@
         <nav class="navbar navbar-default" role="navigation">
             <div class="container-fluid">
                 <div class="navbar-header">
-                    <a class="navbar-brand" href="#">社区操作</a>
+                    <a class="navbar-brand" href="#">宿舍楼操作</a>
                 </div>
             </div>
             <div style="padding: 15px;">
-                <button onclick="javascript:window.location.href='/community/community_add'" type="button" class="btn btn-primary">
-                    添加社区
+                <button onclick="javascript:window.location.href='/community/dormitory_building_add'" type="button" class="btn btn-primary">
+                    添加宿舍楼
                 </button>
             </div>
         </nav>
-        <div style="background: #ececec;float: left;width: 100%;padding-bottom: 15px;" class="item_list">
-        <#if result.code=="SUCCESS"&&(result.data?size>0)>
-            <#list result.data as data>
-                <div onclick="javascript:window.location.href='/community/community_detail/${data.id}'"
-                     style="cursor:pointer;background: #fff;width: 18%;border-top-left-radius:20px;border-top-right-radius:20px;float: left;margin-left: 1%;margin-right: 1%;margin-bottom: 10px;">
-                    <span style="background: #0D47A1;width:100%;border-top-left-radius:20px;border-top-right-radius:20px;height: 30px;display: block;"></span>
-                    <div style="width: 100%;height: 150px;background: url(/images/house${data_index}.png);background-size:100% 150px;"></div>
-                    <div style="height: 40px;">
-                        <p style="text-align: center;color: orange;padding: 10px 0">${data.comName}</p>
-                    </div>
-                </div>
-            </#list>
-        </#if>
+    <#if result.code=="SUCCESS"&&(result.data?size>0)>
+        <table class="table table-striped" style="background: #ececec;float: left;width: 100%;padding-bottom: 15px;">
+            <thead>
+            <tr>
+                <th>社区</th>
+                <th>宿舍楼</th>
+                <th>宿舍个数</th>
+                <th>宿舍层数</th>
+                <th>负责人</th>
+                <th>联系电话</th>
+                <th>信息</th>
+            </tr>
+            </thead>
+            <tbody class="item_list">
+                <#list result.data as data>
+                <tr>
+                    <td>${data.parentName}</td>
+                    <td>${data.name}</td>
+                    <td>${data.number}</td>
+                    <td>${data.level}</td>
+                    <td>${data.wheel}</td>
+                    <td>${data.phone}</td>
+                    <td><a href="/community/dormitory_building_detail/${data.id}">详情</a></td>
+                </tr>
+                </#list>
+            </tbody>
+        </table>
+    <#else>
+        <div style="width: 100%;float:right;text-align: center;color: red;">
+            没有宿舍楼信息
         </div>
+    </#if>
         <div id="page-more" style="text-align: center;width: 100%;">
         </div>
     </div>
@@ -101,7 +119,7 @@
                 }
             },
             onPageClicked: function (event, originalEvent, type, page) {
-                getMore(page, "/community/community_list_more");
+                getMore(page, "/community/dormitory_building_more");
             }
         });
     }

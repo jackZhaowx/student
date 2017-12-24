@@ -1,11 +1,11 @@
 package hebei.engineery.univercity.enums;
 
-public enum PartResultCode {
+public enum CommunityResultCode {
     SUCCESS(10000),
     ERROR(10001);
     private Integer code;
 
-    private PartResultCode(Integer code) {
+    private CommunityResultCode(Integer code) {
         this.code = code;
     }
 
@@ -13,7 +13,7 @@ public enum PartResultCode {
         return code;
     }
 
-    public PartResultCode resolve(Integer code) {
+    public CommunityResultCode resolve(Integer code) {
         switch (code) {
             case 10000:
                 return SUCCESS;

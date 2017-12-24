@@ -1,19 +1,19 @@
 package hebei.engineery.univercity.web.response;
 
-import hebei.engineery.univercity.enums.PartResultCode;
+import hebei.engineery.univercity.enums.CommunityResultCode;
 
 import java.util.List;
 
 public class UnivercityResult<T> {
-    private PartResultCode code;
+    private CommunityResultCode code;
     private List<T> data;
     private Exception exception;
 
-    public PartResultCode getCode() {
+    public CommunityResultCode getCode() {
         return code;
     }
 
-    public void setCode(PartResultCode code) {
+    public void setCode(CommunityResultCode code) {
         this.code = code;
     }
 
@@ -33,7 +33,7 @@ public class UnivercityResult<T> {
         this.exception = exception;
     }
 
-    public UnivercityResult<T> createData(PartResultCode code, List<T> data, Exception exception){
+    public UnivercityResult<T> createData(CommunityResultCode code, List<T> data, Exception exception){
         this.code=code;
         this.data=data;
         this.exception=exception;
